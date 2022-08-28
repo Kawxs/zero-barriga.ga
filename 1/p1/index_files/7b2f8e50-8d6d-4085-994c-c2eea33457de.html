@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link href="./rubik.css" rel="stylesheet">
+<script src="./hls.js.baixados"></script>
+<script src="./rum.js.baixados"></script>
+<script src="./plyr.polyfilled.min.js.baixados"></script>
+<script src="./plyr-plugin-thumbnail.js.baixados"></script>
+<script src="./session-tracker.js.baixados"></script>
+<script type="text/javascript" src="./jquery.min.js.baixados"></script>
+<script src="./chartist.min.js.baixados" type="text/javascript"></script>
+<script src="./plyr-vr.js.baixados" type="text/javascript"></script>
+<link rel="stylesheet" href="./plyr.css">
+<link rel="stylesheet" href="./plyr-vr.css">
+<script src="./pb.js.baixados"></script>
+<link rel="stylesheet" href="./pb.css">
+
+
+<link href="./css" rel="stylesheet">
+
+
+<meta property="og:image" content="https://vz-82736f07-fcb.b-cdn.net/7b2f8e50-8d6d-4085-994c-c2eea33457de/thumbnail_aca4d402.jpg">
+<meta property="og:site_name" content="">
+<meta property="og:title" content="97.webm">
+<meta property="og:type" content="video.other">
+<meta property="og:video:type" content="video/mp4">
+<meta property="og:video:width" content="1920">
+<meta property="og:video:height" content="1080">
+<meta property="video:duration" content="1719">
+
+
+
+<style>
+	* {
+        user-select: none; /* supported by Chrome and Opera */
+        -webkit-user-select: none; /* Safari */
+        -khtml-user-select: none; /* Konqueror HTML */
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+    }
+    :root {
+        --plyr-color-main: black;
+        --plyr-captions-background: black;
+        --plyr-captions-text-color: white;
+        --plyr-font-weight-regular: 600;
+        --plyr-font-weight-bold: 600;
+        
+        --plyr-font-family: 'rubik';
+        
+        --webkit-text-track-display: none;
+    }
+    html, body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+    }
+    body {
+	    background-color: transparent;
+        
+            font-family: 'rubik', sans-serif;
+        
+    }
+
+    .container {
+        width: 100%;
+        height: 100%;
+    }
+
+    video {
+	    width: 100%;
+	    height: 100%;
+    }
+    @media (min-width: 480px) {
+        .plyr__poster {
+            background-size: cover;
+        }
+    }
+    .plyr__control--overlaid {
+        background: black;
+        box-shadow: #4a4a4a20 0 0 27px;
+    }
+
+    .plyr--video {
+	    height: 100%;
+    }
+
+    .plyr--video .plyr__control.plyr__tab-focus,
+    .plyr--video .plyr__control:hover,
+    .plyr--video .plyr__control[aria-expanded=true] {
+        background: black;
+    }
+
+    .plyr__control.plyr__tab-focus {
+	    box-shadow: 0 0 0 5px rgba(255,0,0, .5);
+    }
+
+    .plyr__menu__container .plyr__control[role=menuitemradio][aria-checked=true]::before {
+	    background: black;
+    }
+
+    [data-plyr="captions"].plyr__control--pressed {
+        border-bottom: solid 3px black;
+    }
+
+    .plyr__captions {
+        font-size: 20px;
+    }
+    @media (min-width: 480px) {
+        .plyr__captions {
+		    font-size: 18px;
+	    }
+    }
+    @media (min-width: 768px) {
+        .plyr__captions {
+		    font-size: 23px;
+	    }
+    }
+    @media (min-width: 1024px) {
+        .plyr__captions {
+		    font-size: 26px;
+	    }
+    }
+
+    .plyr__progress input {
+        border-radius: 0px !important;
+        -webkit-appearance: none;
+        background: transparent;
+    }
+        .plyr__progress input[value]::-webkit-progress-bar {
+            border-radius: 0px !important;
+        }
+        .plyr__progress input[value]::-webkit-progress-value {
+            border-radius: 0px !important;
+        }
+
+    .plyr audio, .plyr iframe, .plyr video {
+        max-height: 100vh;
+    }
+    .plyr__spacer {
+        width: 100%;
+    }
+    .plyr__progress__container {
+        position: absolute;
+        top: 14px;
+        left: 10px;
+        width: calc(100% - 24px);
+    }
+    @media (max-width: 480px) {
+        .plyr__progress__container {
+            top: -5px;
+        }
+    }
+    .wt-chart-active .ct-series-a .ct-area, .ct-series-a .ct-slice-donut-solid, .ct-series-a .ct-slice-pie {
+        fill: url(#gradient-active);
+    }
+    .ct-series-a .ct-area, .ct-series-a .ct-slice-donut-solid, .ct-series-a .ct-slice-pie {
+        fill: url(#gradient-a);
+    }
+    .ct-series-a .ct-bar, .ct-series-a .ct-line, .ct-series-a .ct-point, .ct-series-a .ct-slice-donut {
+        stroke: black;
+    }
+    .plyr__pb {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        z-index: 3;
+        margin-left: calc(var(--plyr-range-thumb-height, 13px)*-.5);
+        margin-right: -6.5px;
+        margin-right: calc(var(--plyr-range-thumb-height, 13px)*-.5);
+        width: calc(100% + 13px);
+        width: calc(100% + var(--plyr-range-thumb-height, 13px));
+    }
+    .plyr__preview-thumb {
+	    bottom: 22px;
+        transition: bottom ease 0.1s;
+    }
+    .plyr__controls {
+        padding-top: 70px;
+    }
+
+    .plyr--full-ui.plyr--video .plyr__progress input[type=range]::-webkit-slider-runnable-track{
+        background-color: transparent !important;
+    }
+    .plyr--full-ui.plyr--video .plyr__progress input[type=range]::-moz-range-track{
+        background-color: transparent !important;
+    }
+    .plyr--full-ui.plyr--video .plyr__progress input[type=range]::-ms-track{
+        background-color: transparent !important;
+    }
+
+    .plyr__progress input {
+        background-color: transparent !important;
+        color: transparent !important;
+        top: -6px !important;
+        z-index: 7 !important;
+        cursor: pointer;
+    }
+
+    .plyr--full-ui.plyr--video .plyr__progress input[type=range]::-webkit-slider-thumb {
+        opacity: 0;
+        transition: opacity ease 0.1s;
+    }
+    .plyr--full-ui.plyr--video .plyr__progress input[type=range]::-moz-range-thumb {
+        opacity: 0;
+        transition: opacity ease 0.1s;
+    }
+    .plyr--full-ui.plyr--video .plyr__progress input[type=range]::-ms-thumb {
+        opacity: 0;
+        transition: opacity ease 0.1s;
+    }
+    .plyr--full-ui.plyr--video .plyr__progress input[type=range]:active::-webkit-slider-thumb {
+        opacity: 1;
+    }
+    .plyr--full-ui.plyr--video .plyr__progress input[type=range]:active::-moz-range-thumb {
+        opacity: 1;
+    }
+    .plyr--full-ui.plyr--video .plyr__progress input[type=range]:active::-ms-thumb {
+        opacity: 1;
+    }
+    .plyr__menu__container {
+        z-index: 10;
+    }
+    @media (min-width: 1280px) {
+        .plyr--full-ui.plyr--video .plyr__control--overlaid {
+            width: 60px;
+            height: 60px;
+        }
+        .plyr__control svg {
+            height: 21px;
+            width: 21px;
+        }
+    }
+    .plyr__control--overlaid svg {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .plyr__control--logo {
+        height: auto;
+        max-height: 23.5px;
+        position: absolute;
+        left: 44%;
+        top: 37px;
+        margin-left: -50px;
+    }
+    .plyr__tooltip--drag {
+        opacity: 1;
+        transform: translate(-50%) scale(1);
+    }
+
+    .plyr__controls__item[data-plyr="rewind"], .plyr__controls__item[data-plyr="fast-forward"] {
+        padding: 4px;
+    }
+    .plyr__controls__item[data-plyr="rewind"] svg, .plyr__controls__item[data-plyr="fast-forward"] svg {
+        height: 24px;
+        height: var(--plyr-control-icon-size,24px);
+        pointer-events: none;
+        width: 24px;
+        width: var(--plyr-control-icon-size,24px);
+    }
+
+    .plyr--full-ui ::-webkit-media-text-track-container {
+        display: var(--webkit-text-track-display);
+    }
+</style>
+
+
+</head>
+<body id="body"><div hidden="" id="sprite-plyr"><!--?xml version="1.0" encoding="UTF-8"?--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><symbol id="plyr-airplay" viewBox="0 0 18 18"><path d="M16 1H2a1 1 0 00-1 1v10a1 1 0 001 1h3v-2H3V3h12v8h-2v2h3a1 1 0 001-1V2a1 1 0 00-1-1z"></path><path d="M4 17h10l-5-6z"></path></symbol><symbol id="plyr-captions-off" viewBox="0 0 18 18"><path d="M1 1c-.6 0-1 .4-1 1v11c0 .6.4 1 1 1h4.6l2.7 2.7c.2.2.4.3.7.3.3 0 .5-.1.7-.3l2.7-2.7H17c.6 0 1-.4 1-1V2c0-.6-.4-1-1-1H1zm4.52 10.15c1.99 0 3.01-1.32 3.28-2.41l-1.29-.39c-.19.66-.78 1.45-1.99 1.45-1.14 0-2.2-.83-2.2-2.34 0-1.61 1.12-2.37 2.18-2.37 1.23 0 1.78.75 1.95 1.43l1.3-.41C8.47 4.96 7.46 3.76 5.5 3.76c-1.9 0-3.61 1.44-3.61 3.7 0 2.26 1.65 3.69 3.63 3.69zm7.57 0c1.99 0 3.01-1.32 3.28-2.41l-1.29-.39c-.19.66-.78 1.45-1.99 1.45-1.14 0-2.2-.83-2.2-2.34 0-1.61 1.12-2.37 2.18-2.37 1.23 0 1.78.75 1.95 1.43l1.3-.41c-.28-1.15-1.29-2.35-3.25-2.35-1.9 0-3.61 1.44-3.61 3.7 0 2.26 1.65 3.69 3.63 3.69z" fill-rule="evenodd" fill-opacity=".5"></path></symbol><symbol id="plyr-captions-on" viewBox="0 0 18 18"><path d="M1 1c-.6 0-1 .4-1 1v11c0 .6.4 1 1 1h4.6l2.7 2.7c.2.2.4.3.7.3.3 0 .5-.1.7-.3l2.7-2.7H17c.6 0 1-.4 1-1V2c0-.6-.4-1-1-1H1zm4.52 10.15c1.99 0 3.01-1.32 3.28-2.41l-1.29-.39c-.19.66-.78 1.45-1.99 1.45-1.14 0-2.2-.83-2.2-2.34 0-1.61 1.12-2.37 2.18-2.37 1.23 0 1.78.75 1.95 1.43l1.3-.41C8.47 4.96 7.46 3.76 5.5 3.76c-1.9 0-3.61 1.44-3.61 3.7 0 2.26 1.65 3.69 3.63 3.69zm7.57 0c1.99 0 3.01-1.32 3.28-2.41l-1.29-.39c-.19.66-.78 1.45-1.99 1.45-1.14 0-2.2-.83-2.2-2.34 0-1.61 1.12-2.37 2.18-2.37 1.23 0 1.78.75 1.95 1.43l1.3-.41c-.28-1.15-1.29-2.35-3.25-2.35-1.9 0-3.61 1.44-3.61 3.7 0 2.26 1.65 3.69 3.63 3.69z" fill-rule="evenodd"></path></symbol><symbol id="plyr-download" viewBox="0 0 18 18"><path d="M9 13c.3 0 .5-.1.7-.3L15.4 7 14 5.6l-4 4V1H8v8.6l-4-4L2.6 7l5.7 5.7c.2.2.4.3.7.3zm-7 2h14v2H2z"></path></symbol><symbol id="plyr-enter-fullscreen" viewBox="0 0 18 18"><path d="M10 3h3.6l-4 4L11 8.4l4-4V8h2V1h-7zM7 9.6l-4 4V10H1v7h7v-2H4.4l4-4z"></path></symbol><symbol id="plyr-exit-fullscreen" viewBox="0 0 18 18"><path d="M1 12h3.6l-4 4L2 17.4l4-4V17h2v-7H1zM16 .6l-4 4V1h-2v7h7V6h-3.6l4-4z"></path></symbol><symbol id="plyr-fast-forward" viewBox="0 0 28 28"><path d="M 15 3 C 8.3845336 3 3 8.3845336 3 15 C 3 21.615466 8.3845336 27 15 27 C 21.615466 27 27 21.615466 27 15 A 1.0001 1.0001 0 1 0 25 15 C 25 20.534534 20.534534 25 15 25 C 9.4654664 25 5 20.534534 5 15 C 5 9.4654664 9.4654664 5 15 5 C 17.511974 5 19.790481 5.9310235 21.544922 7.4550781 L 19 10 L 25 10 L 25 4 L 22.960938 6.0390625 C 20.840494 4.1553732 18.053851 3 15 3 z M 17.6875 11.349609 C 15.8715 11.349609 14.728516 12.710922 14.728516 15.044922 C 14.728516 17.378922 15.8555 18.774391 17.6875 18.775391 C 19.5135 18.775391 20.646484 17.374781 20.646484 15.050781 C 20.646484 12.706781 19.4995 11.349609 17.6875 11.349609 z M 11.134766 11.539062 L 9.34375 12.759766 L 9.34375 14.302734 L 11.042969 13.154297 L 11.134766 13.154297 L 11.134766 18.585938 L 12.927734 18.585938 L 12.927734 11.539062 L 11.134766 11.539062 z M 17.6875 12.726562 C 18.3715 12.726563 18.830078 13.496922 18.830078 15.044922 C 18.830078 16.602922 18.3715 17.398438 17.6875 17.398438 C 17.0035 17.398438 16.548828 16.602922 16.548828 15.044922 C 16.548828 13.496922 17.0035 12.726562 17.6875 12.726562 z"></path></symbol><symbol id="plyr-logo-vimeo" viewBox="0 0 18 18"><path d="M17 5.3c-.1 1.6-1.2 3.7-3.3 6.4-2.2 2.8-4 4.2-5.5 4.2-.9 0-1.7-.9-2.4-2.6C5 10.9 4.4 6 3 6c-.1 0-.5.3-1.2.8l-.8-1c.8-.7 3.5-3.4 4.7-3.5 1.2-.1 2 .7 2.3 2.5.3 2 .8 6.1 1.8 6.1.9 0 2.5-3.4 2.6-4 .1-.9-.3-1.9-2.3-1.1.8-2.6 2.3-3.8 4.5-3.8 1.7.1 2.5 1.2 2.4 3.3z"></path></symbol><symbol id="plyr-logo-youtube" viewBox="0 0 18 18"><path d="M16.8 5.8c-.2-1.3-.8-2.2-2.2-2.4C12.4 3 9 3 9 3s-3.4 0-5.6.4C2 3.6 1.3 4.5 1.2 5.8 1 7.1 1 9 1 9s0 1.9.2 3.2c.2 1.3.8 2.2 2.2 2.4C5.6 15 9 15 9 15s3.4 0 5.6-.4c1.4-.3 2-1.1 2.2-2.4.2-1.3.2-3.2.2-3.2s0-1.9-.2-3.2zM7 12V6l5 3-5 3z"></path></symbol><symbol id="plyr-muted" viewBox="0 0 18 18"><path d="M12.4 12.5l2.1-2.1 2.1 2.1 1.4-1.4L15.9 9 18 6.9l-1.4-1.4-2.1 2.1-2.1-2.1L11 6.9 13.1 9 11 11.1zM3.786 6.008H.714C.286 6.008 0 6.31 0 6.76v4.512c0 .452.286.752.714.752h3.072l4.071 3.858c.5.3 1.143 0 1.143-.602V2.752c0-.601-.643-.977-1.143-.601L3.786 6.008z"></path></symbol><symbol id="plyr-pause" viewBox="0 0 18 18"><path d="M6 1H3c-.6 0-1 .4-1 1v14c0 .6.4 1 1 1h3c.6 0 1-.4 1-1V2c0-.6-.4-1-1-1zm6 0c-.6 0-1 .4-1 1v14c0 .6.4 1 1 1h3c.6 0 1-.4 1-1V2c0-.6-.4-1-1-1h-3z"></path></symbol><symbol id="plyr-pip" viewBox="0 0 18 18"><path d="M13.293 3.293L7.022 9.564l1.414 1.414 6.271-6.271L17 7V1h-6z"></path><path d="M13 15H3V5h5V3H2a1 1 0 00-1 1v12a1 1 0 001 1h12a1 1 0 001-1v-6h-2v5z"></path></symbol><symbol id="plyr-play" viewBox="0 0 18 18"><path d="M15.562 8.1L3.87.225c-.818-.562-1.87 0-1.87.9v15.75c0 .9 1.052 1.462 1.87.9L15.563 9.9c.584-.45.584-1.35 0-1.8z"></path></symbol><symbol id="plyr-restart" viewBox="0 0 18 18"><path d="M9.7 1.2l.7 6.4 2.1-2.1c1.9 1.9 1.9 5.1 0 7-.9 1-2.2 1.5-3.5 1.5-1.3 0-2.6-.5-3.5-1.5-1.9-1.9-1.9-5.1 0-7 .6-.6 1.4-1.1 2.3-1.3l-.6-1.9C6 2.6 4.9 3.2 4 4.1 1.3 6.8 1.3 11.2 4 14c1.3 1.3 3.1 2 4.9 2 1.9 0 3.6-.7 4.9-2 2.7-2.7 2.7-7.1 0-9.9L16 1.9l-6.3-.7z"></path></symbol><symbol id="plyr-rewind" viewBox="0 0 28 28"><path d="M 15 3 C 11.946149 3 9.1595062 4.1553732 7.0390625 6.0390625 L 5 4 L 5 10 L 11 10 L 8.4550781 7.4550781 C 10.209519 5.9310235 12.488026 5 15 5 C 20.534534 5 25 9.4654664 25 15 C 25 20.534534 20.534534 25 15 25 C 9.4654664 25 5 20.534534 5 15 A 1.0001 1.0001 0 1 0 3 15 C 3 21.615466 8.3845336 27 15 27 C 21.615466 27 27 21.615466 27 15 C 27 8.3845336 21.615466 3 15 3 z M 17.6875 11.349609 C 15.8715 11.349609 14.728516 12.710922 14.728516 15.044922 C 14.728516 17.378922 15.8555 18.774391 17.6875 18.775391 C 19.5135 18.775391 20.646484 17.374781 20.646484 15.050781 C 20.646484 12.706781 19.4995 11.349609 17.6875 11.349609 z M 11.134766 11.539062 L 9.34375 12.759766 L 9.34375 14.302734 L 11.042969 13.154297 L 11.134766 13.154297 L 11.134766 18.585938 L 12.927734 18.585938 L 12.927734 11.539062 L 11.134766 11.539062 z M 17.6875 12.726562 C 18.3715 12.726563 18.830078 13.496922 18.830078 15.044922 C 18.830078 16.602922 18.3715 17.398438 17.6875 17.398438 C 17.0035 17.398438 16.548828 16.602922 16.548828 15.044922 C 16.548828 13.496922 17.0035 12.726562 17.6875 12.726562 z"></path></symbol><symbol id="plyr-settings" viewBox="0 0 18 18"><path d="M16.135 7.784a2 2 0 01-1.23-2.969c.322-.536.225-.998-.094-1.316l-.31-.31c-.318-.318-.78-.415-1.316-.094a2 2 0 01-2.969-1.23C10.065 1.258 9.669 1 9.219 1h-.438c-.45 0-.845.258-.997.865a2 2 0 01-2.969 1.23c-.536-.322-.999-.225-1.317.093l-.31.31c-.318.318-.415.781-.093 1.317a2 2 0 01-1.23 2.969C1.26 7.935 1 8.33 1 8.781v.438c0 .45.258.845.865.997a2 2 0 011.23 2.969c-.322.536-.225.998.094 1.316l.31.31c.319.319.782.415 1.316.094a2 2 0 012.969 1.23c.151.607.547.865.997.865h.438c.45 0 .845-.258.997-.865a2 2 0 012.969-1.23c.535.321.997.225 1.316-.094l.31-.31c.318-.318.415-.781.094-1.316a2 2 0 011.23-2.969c.607-.151.865-.547.865-.997v-.438c0-.451-.26-.846-.865-.997zM9 12a3 3 0 110-6 3 3 0 010 6z"></path></symbol><symbol id="plyr-volume" viewBox="0 0 18 18"><path d="M15.6 3.3c-.4-.4-1-.4-1.4 0-.4.4-.4 1 0 1.4C15.4 5.9 16 7.4 16 9c0 1.6-.6 3.1-1.8 4.3-.4.4-.4 1 0 1.4.2.2.5.3.7.3.3 0 .5-.1.7-.3C17.1 13.2 18 11.2 18 9s-.9-4.2-2.4-5.7z"></path><path d="M11.282 5.282a.909.909 0 000 1.316c.735.735.995 1.458.995 2.402 0 .936-.425 1.917-.995 2.487a.909.909 0 000 1.316c.145.145.636.262 1.018.156a.725.725 0 00.298-.156C13.773 11.733 14.13 10.16 14.13 9c0-.17-.002-.34-.011-.51-.053-.992-.319-2.005-1.522-3.208a.909.909 0 00-1.316 0zm-7.496.726H.714C.286 6.008 0 6.31 0 6.76v4.512c0 .452.286.752.714.752h3.072l4.071 3.858c.5.3 1.143 0 1.143-.602V2.752c0-.601-.643-.977-1.143-.601L3.786 6.008z"></path></symbol></svg></div>
+	<div class="container" id="video-container" style="margin-top: 0px;">
+		<svg viewBox="0 0 0 0" style="height: 0; width: 0; display: block;">
+		  <defs>
+			<lineargradient id="gradient-a" x2="0%" y2="100%">
+			  <stop offset="0%" stop-color="#abababaf"></stop>
+		      <stop offset="30%" stop-color="#ababab8f"></stop>
+			  <stop offset="70%" stop-color="#ababab5f"></stop>
+			  <stop offset="100%" stop-color="#ababab33"></stop>
+			</lineargradient>
+			<lineargradient id="gradient-active" x2="0%" y2="100%">
+			  <stop offset="0%" stop-color="blackaf"></stop>
+		      <stop offset="30%" stop-color="black8f"></stop>
+			  <stop offset="70%" stop-color="black3f"></stop>
+			  <stop offset="100%" stop-color="black13"></stop>
+			</lineargradient>
+		  </defs>
+		</svg>
+		<div tabindex="0" class="plyr plyr--full-ui plyr--video plyr--html5 plyr--fullscreen-enabled plyr--pip-supported plyr__poster-enabled plyr--playing plyr--hide-controls"><div class="plyr__controls"><div class="plyr__controls__item plyr__spacer"></div><div class="plyr__controls__item plyr__progress__container" style="display: none;"><div class="plyr__progress"><div class="plyr__pb" style="pointer-events: none;"><div class="sp__base"><ul class="sp__progressbar"><li style="width: 0px;"><div class="sp__container"><div class="sp__bg"></div><div class="sp__section" style="background-color: rgba(255, 255, 255, 0.533); z-index: 1; width: 0px;"></div><div class="sp__section" style="background-color: rgba(255, 255, 255, 0.314); z-index: 2; width: 0px;"></div><div class="sp__section" style="background-color: black; z-index: 3; width: 0px;"></div></div></li></ul><div class="sp__title">test</div></div></div><input data-plyr="seek" type="range" min="0" max="100" step="0.01" value="0" autocomplete="off" role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="1718.5" aria-valuenow="8.708333" id="plyr-seek-3405" aria-valuetext="00:08 of 28:38" style="--value:0.51%; top: -5px;"><progress class="plyr__progress__buffer" min="0" max="100" value="2.6156143729997092" role="progressbar" aria-hidden="true" style="top: 4px; opacity: 0.01;">% buffered</progress><span class="plyr__tooltip" hidden="">00:00</span><div class="plyr__preview-thumb"><div class="plyr__preview-thumb__image-container"></div><div class="plyr__preview-thumb__time-container"><span>00:00</span></div></div></div></div></div><div class="plyr__video-wrapper"><video preload="auto" crossorigin="" autoplay="" none="" data-plyr-config="{ &quot;title&quot;: &quot;97.webm&quot; }" playsinline="" data-poster="https://vz-82736f07-fcb.b-cdn.net/7b2f8e50-8d6d-4085-994c-c2eea33457de/thumbnail_aca4d402.jpg" src="blob:https://iframe.mediadelivery.net/0ddf5470-691c-43f3-a156-075d32909dbc">
+			
+				<source type="application/x-mpegURL" src="https://vz-82736f07-fcb.b-cdn.net/7b2f8e50-8d6d-4085-994c-c2eea33457de/playlist.m3u8">
+
+				
+
+				
+			
+		</video><div class="plyr__poster" style="background-image: url(&quot;https://vz-82736f07-fcb.b-cdn.net/7b2f8e50-8d6d-4085-994c-c2eea33457de/thumbnail_aca4d402.jpg&quot;);"></div><div class="plyr__preview-scrubbing"></div></div><div class="plyr__captions"></div><button type="button" class="plyr__control plyr__control--overlaid plyr__control--pressed" data-plyr="play" aria-label="Pause"><svg aria-hidden="true" focusable="false"><use href="#plyr-play"></use></svg><span class="plyr__sr-only">Play</span></button></div>
+	</div>
+
+	<script>
+        var videoSessionTracker = new BunnyStreamSessionTracker("mediadelivery.net", "video.bunnycdn.com", 56514, "7b2f8e50-8d6d-4085-994c-c2eea33457de", "520");
+		var errorEvents = {};
+		function loadUrl(url, onFinished) {
+			var xmlhttp = new XMLHttpRequest();
+			xmlhttp.onreadystatechange = function () {
+				if (xmlhttp.readyState == XMLHttpRequest.DONE) {   // XMLHttpRequest.DONE == 4
+					if (xmlhttp.status == 200) {
+						onFinished(xmlhttp.responseText);
+					}
+				}
+			};
+
+			xmlhttp.open("GET", url, true);
+			xmlhttp.send();
+		}
+		function IsMobile() {
+			let check = false;
+			(function (a) { if (/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino|android|ipad|playbook|silk/i.test(a) || /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0, 4))) check = true; })(navigator.userAgent || navigator.vendor || window.opera);
+			return check;
+		}
+
+		document.addEventListener("DOMContentLoaded", function () {
+			var video = document.querySelector("video");
+			var fragmentsLoaded = 0;
+			var player = null;
+			var isHlsSupported = Hls.isSupported();
+			var source = video.getElementsByTagName("source")[0].src;
+
+			function initPlayer()
+			{
+				$('<div class="plyr__controls__item plyr__spacer"></div>').insertBefore(".plyr__progress__container");
+				
+					$(".plyr__progress__container").hide();
+				
+
+				/* Heatmap Chart */
+				
+
+
+				$("video").on('webkitbeginfullscreen webkitendfullscreen', function (event) {
+					if (event.type === 'webkitbeginfullscreen') {
+						document.documentElement.style.setProperty('--webkit-text-track-display', 'block');
+					} else {
+						document.documentElement.style.setProperty('--webkit-text-track-display', 'none');
+					}
+				});
+
+				/* Session tracking */
+				
+				player.on("play", function () {
+					videoSessionTracker.OnPlay();
+				});
+				player.on("pause", function () {
+					videoSessionTracker.OnPause();
+				});
+				setInterval(function () {
+					videoSessionTracker.OnProgress(player.currentTime);
+				}, 900);
+				
+
+
+				/* VR */
+				
+
+				/* Progress bar */
+				var scrubbingPaused = false;
+				var isMobile = IsMobile();
+				$(".plyr__progress__container input").css("top", "-5px");
+				$(".plyr__progress__container progress").css("top", "4px");
+				$(".plyr__progress__container progress").css("opacity", "0.01");
+				$(".plyr__progress").prepend($('<div class="plyr__pb"></div>'));
+				var pb = new PB(".plyr__pb", ".plyr__progress__container input", {
+					keyColor: "black",
+					videoLength: 1719,
+					chapters: [
+						
+					],
+					moments: [
+						
+					],
+					onScrubbingChange: function(seekTime, offset) {
+						var thumbWidth = $(".plyr__preview-thumb").width();
+                        var position = Math.max(thumbWidth / 2, offset);
+                        position = Math.min($(".plyr__controls").width() - $(".plyr__preview-thumb").width() + (thumbWidth / 4), position);
+						$(".plyr__preview-thumb").css("left", (position - 5.5) + "px");
+					}
+				});
+				player.on("loadedmetadata", function () {
+					pb.SetDuration(player.duration);
+				});
+
+				setInterval(function () {
+					pb.SetCurrentProgress(player.currentTime);
+                    
+					pb.SetBufferProgress(player.duration * player.buffered);
+				}, 16);
+				/* Progress bar */
+
+
+				function getStatusObject() {
+					return {
+						volume: player.volume,
+						muted: player.muted,
+						hideControls: player.hideControls,
+						speed: player.speed,
+						quality: player.quality,
+						currentTime: player.currentTime,
+						playing: player.playing,
+						paused: player.paused,
+						stopped: player.stopped,
+						ended: player.ended,
+						buffered: player.buffered,
+						duration: player.duration,
+						hasAudio: player.hasAudio,
+						loop: player.loop,
+						language: player.language,
+						ratio: player.ratio,
+					};
+                }
+
+				function sendEvent(name) {
+					window.parent.postMessage({
+						channel: "bunnystream",
+						video: "7b2f8e50-8d6d-4085-994c-c2eea33457de",
+						event: name,
+						status: getStatusObject(),
+					}, '*');
+				}
+
+				function wireEvent(name) {
+					player.on(name, function () { sendEvent(name)});
+                }
+
+				function wireUpEvents()
+				{
+					wireEvent("progress");
+					wireEvent("ready");
+					wireEvent("play");
+					wireEvent("pause");
+					wireEvent("timeupdate");
+					wireEvent("seeking");
+					wireEvent("seeked");
+					wireEvent("ended");
+					wireEvent("ratechange");
+					wireEvent("enterfullscreen");
+					wireEvent("exitfullscreen");
+					wireEvent("captionsenabled");
+					wireEvent("captionsdisabled");
+					wireEvent("languagechange");
+					wireEvent("ready");
+                }
+
+				window.onmessage = function(e)
+				{
+					var message = e.data;
+					if (message.command == 'activate') 
+					{
+						wireUpEvents();
+					}
+					else if (message.command == 'pause') {
+						player.pause();
+					}
+					else if (message.command == 'play') {
+						player.play();
+					}
+					else if (message.command == 'togglePlay') {
+						if (message.parameter != null)
+							player.togglePlay(message.parameter);
+						else
+							player.togglePlay();
+					}
+					else if (message.command == 'destroy') {
+						player.destroy();
+					}
+					else if (message.command == 'increaseVolume') {
+						if (message.parameter != null)
+							player.increaseVolume(message.parameter);
+						else
+							player.increaseVolume(0.1);
+					}
+					else if (message.command == 'decreaseVolume') {
+						if (message.parameter != null)
+							player.decreaseVolume(message.parameter);
+						else
+							player.decreaseVolume(0.1);
+					}
+					else if (message.command == 'toggleCaptions') {
+						if (message.parameter != null)
+							player.toggleCaptions(message.parameter);
+						else
+							player.toggleCaptions();
+					}
+					else if (message.command == 'toggleControls') {
+						if (message.parameter != null)
+							player.toggleControls(message.parameter);
+						else
+							player.toggleControls();
+					}
+					else if (message.command == 'fullscreen.enter') {
+						player.fullscreen.enter();
+					}
+					else if (message.command == 'fullscreen.exit') {
+						player.fullscreen.exit();
+					}
+					else if (message.command == 'fullscreen.toggle') {
+						player.fullscreen.toggle();
+					}
+					else if (message.command == 'forward') {
+						if (message.parameter != null)
+							player.forward(message.parameter);
+						else
+							player.forward();
+					}
+					else if (message.command == 'rewind') {
+						if (message.parameter != null)
+							player.rewind(message.parameter);
+						else
+							player.rewind();
+					}
+				};
+            }
+
+
+			var defaultOptions = {
+                fullscreen: {
+                    enabled: true,
+                    fallback: true,
+                    iosNative: true
+				},
+                iconUrl: 'https://bunnycdn-video-assets.b-cdn.net/plyr.svg',
+                captions: { active: false, language: '', update: true },
+				controls: [
+					"play-large","progress"
+				],
+				speed: { selected: 1, options: [0.5,0.75,1,1.25,1.5,1.75,2,4] },
+				i18n: {
+    restart: 'Restart',
+    rewind: 'Rewind {seektime}s',
+    play: 'Play',
+    pause: 'Pause',
+    fastForward: 'Forward {seektime}s',
+    seek: 'Seek',
+    seekLabel: '{currentTime} of {duration}',
+    played: 'Played',
+    buffered: 'Buffered',
+    currentTime: 'Current time',
+    duration: 'Duration',
+    volume: 'Volume',
+    mute: 'Mute',
+    unmute: 'Unmute',
+    enableCaptions: 'Enable captions',
+    disableCaptions: 'Disable captions',
+    download: 'Download',
+    enterFullscreen: 'Enter fullscreen',
+    exitFullscreen: 'Exit fullscreen',
+    frameTitle: 'Player for {title}',
+    captions: 'Captions',
+    settings: 'Settings',
+    pip: 'PIP',
+    menuBack: 'Go back to previous menu',
+    speed: 'Speed',
+    normal: 'Normal',
+    quality: 'Quality',
+    loop: 'Loop',
+    start: 'Start',
+    end: 'End',
+    all: 'All',
+    reset: 'Reset',
+    disabled: 'Disabled',
+    enabled: 'Enabled',
+    advertisement: 'Ad',
+    qualityBadge: {
+      2160: '4K',
+      1440: 'HD',
+      1080: 'HD',
+      720: 'HD',
+      576: 'SD',
+      480: 'SD',
+    },
+},
+				thumbnail: {
+					enabled: true,
+					pic_num: 860,// total thumbnail numbers
+					width: 300,// per thumbnail item width
+					height: 168,// per thumbnail item height
+                    col: 6,// per thumbnail image columns
+					row: 6,// per thumbnail image rows
+                    offsetX: 0,
+                    offsetY: 0,
+                    urls: [
+						
+                        'https://vz-82736f07-fcb.b-cdn.net/7b2f8e50-8d6d-4085-994c-c2eea33457de/seek/_0.jpg',
+						
+                        'https://vz-82736f07-fcb.b-cdn.net/7b2f8e50-8d6d-4085-994c-c2eea33457de/seek/_1.jpg',
+						
+                        'https://vz-82736f07-fcb.b-cdn.net/7b2f8e50-8d6d-4085-994c-c2eea33457de/seek/_2.jpg',
+						
+                        'https://vz-82736f07-fcb.b-cdn.net/7b2f8e50-8d6d-4085-994c-c2eea33457de/seek/_3.jpg',
+						
+                        'https://vz-82736f07-fcb.b-cdn.net/7b2f8e50-8d6d-4085-994c-c2eea33457de/seek/_4.jpg',
+						
+                        'https://vz-82736f07-fcb.b-cdn.net/7b2f8e50-8d6d-4085-994c-c2eea33457de/seek/_5.jpg',
+						
+                        'https://vz-82736f07-fcb.b-cdn.net/7b2f8e50-8d6d-4085-994c-c2eea33457de/seek/_6.jpg',
+						
+                        'https://vz-82736f07-fcb.b-cdn.net/7b2f8e50-8d6d-4085-994c-c2eea33457de/seek/_7.jpg',
+						
+                        'https://vz-82736f07-fcb.b-cdn.net/7b2f8e50-8d6d-4085-994c-c2eea33457de/seek/_8.jpg',
+						
+                        'https://vz-82736f07-fcb.b-cdn.net/7b2f8e50-8d6d-4085-994c-c2eea33457de/seek/_9.jpg',
+						
+                        'https://vz-82736f07-fcb.b-cdn.net/7b2f8e50-8d6d-4085-994c-c2eea33457de/seek/_10.jpg',
+						
+                        'https://vz-82736f07-fcb.b-cdn.net/7b2f8e50-8d6d-4085-994c-c2eea33457de/seek/_11.jpg',
+						
+                        'https://vz-82736f07-fcb.b-cdn.net/7b2f8e50-8d6d-4085-994c-c2eea33457de/seek/_12.jpg',
+						
+                        'https://vz-82736f07-fcb.b-cdn.net/7b2f8e50-8d6d-4085-994c-c2eea33457de/seek/_13.jpg',
+						
+                        'https://vz-82736f07-fcb.b-cdn.net/7b2f8e50-8d6d-4085-994c-c2eea33457de/seek/_14.jpg',
+						
+                        'https://vz-82736f07-fcb.b-cdn.net/7b2f8e50-8d6d-4085-994c-c2eea33457de/seek/_15.jpg',
+						
+                        'https://vz-82736f07-fcb.b-cdn.net/7b2f8e50-8d6d-4085-994c-c2eea33457de/seek/_16.jpg',
+						
+                        'https://vz-82736f07-fcb.b-cdn.net/7b2f8e50-8d6d-4085-994c-c2eea33457de/seek/_17.jpg',
+						
+                        'https://vz-82736f07-fcb.b-cdn.net/7b2f8e50-8d6d-4085-994c-c2eea33457de/seek/_18.jpg',
+						
+                        'https://vz-82736f07-fcb.b-cdn.net/7b2f8e50-8d6d-4085-994c-c2eea33457de/seek/_19.jpg',
+						
+                        'https://vz-82736f07-fcb.b-cdn.net/7b2f8e50-8d6d-4085-994c-c2eea33457de/seek/_20.jpg',
+						
+                        'https://vz-82736f07-fcb.b-cdn.net/7b2f8e50-8d6d-4085-994c-c2eea33457de/seek/_21.jpg',
+						
+                        'https://vz-82736f07-fcb.b-cdn.net/7b2f8e50-8d6d-4085-994c-c2eea33457de/seek/_22.jpg',
+						
+                        'https://vz-82736f07-fcb.b-cdn.net/7b2f8e50-8d6d-4085-994c-c2eea33457de/seek/_23.jpg',
+						
+                    ]
+                },
+				
+			};
+			
+				if (isHlsSupported) {
+					var hlsConfig = {
+						abrEwmaDefaultEstimate: 5000000,
+						maxBufferLength: 120,
+                        minBufferLength: 20,
+						
+							autoStartLoad: true,
+						
+					};
+					var hls = new Hls(hlsConfig);
+					hls.loadSource(source);
+
+					// From the m3u8 playlist, hls parses the manifest and returns
+					// all available video qualities. This is important, in this approach,
+					// we will have one source on the Plyr player.
+					hls.on(Hls.Events.MANIFEST_PARSED, function (event, data) {
+
+						if (window.hls.currentLevel == -1)
+						{
+							// Auto
+							if(hls.levels.length == 1) {
+								window.hls.currentLevel = 0;
+							}
+							else if(hls.levels.length == 2) {
+								window.hls.currentLevel = 1;
+							}
+							else {
+								window.hls.currentLevel = 2;
+							}
+						}
+
+						// Transform available levels into an array of integers (height values).
+						var availableQualities = hls.levels.map(function (l) { return l.height });
+						availableQualities.unshift(0) //prepend 0 to quality array;
+
+						// Add new qualities to option
+						defaultOptions.quality = {
+							default: 0,
+							options: availableQualities,
+							// this ensures Plyr to use Hls to update quality level
+							forced: true,
+							onChange: function (e) { updateQuality(e); },
+						}
+
+						// Initialize here
+						player = new Plyr(video, defaultOptions);
+						initPlayer();
+						
+
+                        
+					});
+					hls.on(Hls.Events.LEVEL_SWITCHED, function (event, data) {
+						var span = document.querySelector(".plyr__controls [data-plyr='quality'][value='0'] span")
+						if (span != null) {
+							if (hls.autoLevelEnabled) {
+								var height = hls.levels[data.level].height;
+								span.innerHTML = 'Auto (' + height + 'p)'
+							} else {
+								span.innerHTML = 'Auto'
+							}
+						}
+					});
+					
+
+					hls.on(Hls.Events.ERROR, function (event, data) {
+                        if (errorEvents[data.details] == undefined) {
+							errorEvents[data.details] = 0;
+						}
+
+						errorEvents[data.details] += 1;
+
+						if (data.fatal) {
+                            console.error("HLS error occured:", data);
+                        }
+					});
+
+					setInterval(function() {
+						var bandwidth = hls.abrController.bwEstimator.getEstimate();
+						if (isNaN(bandwidth)) {
+							bandwidth = 0;
+						}
+						if (!video.paused) {
+
+							var errorEventsString = "";
+							var keys = Object.keys(errorEvents);
+							for (var i = 0; i < keys.length; i++) {
+								var key = keys[i];
+                                var value = errorEvents[key];
+								if (errorEventsString != "") {
+									errorEventsString += ",";
+								}
+								errorEventsString += (key + "=" + value);
+                            }
+
+                            loadUrl("https://video-520.mediadelivery.net/.metrics/add?errorEvents=" + errorEventsString + "&bandwidth=" + bandwidth + "&zoneTier=" + 'volume', function (data) { });
+							errorEvents = {};
+                        }
+					}, 15000);
+                     
+					hls.attachMedia(video);
+					window.hls = hls;
+				}
+				else {
+					defaultOptions.quality = { 
+						default: 480,
+						options: [240, 320, 480, 720]
+					};
+
+					player = new Plyr(video, defaultOptions);
+					initPlayer();
+				}
+				
+
+			function updateQuality(newQuality) {
+                if (newQuality === 0) {
+                    window.hls.currentLevel = -1; //Enable AUTO quality if option.value = 0
+                } else {
+                    window.hls.levels.forEach(function (level, levelIndex) {
+                        if (level.height === newQuality) {
+                            console.log("Found quality match with " + newQuality);
+                            window.hls.currentLevel = levelIndex;
+                        }
+                    });
+                }
+			};
+		});
+
+        function centerVertically() {
+            var container = document.getElementById("body");
+            var inner = document.getElementById("video-container");
+
+            var inHeight = inner.offsetHeight;
+            var conHeight = container.offsetHeight;
+
+            inner.style.marginTop = ((conHeight - inHeight) / 2) + 'px';
+        }
+        centerVertically();
+		window.addEventListener("resize", centerVertically);
+	</script>
+
+</body></html>
